@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>ArithmeticBitwiseBenchmarks.FloatingPointTypeShiftBenchmarks-20230208-184107</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.4, OS=Windows 10 (10.0.19045.2486)
+Intel Core i7-4790 CPU 3.60GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+.NET SDK=7.0.200-preview.22628.1
+  [Host]     : .NET 7.0.2 (7.0.222.60605), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.2 (7.0.222.60605), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>                                Method</th><th>LoopCount</th><th>value</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Code Size</th>
+</tr>
+</thead><tbody><tr><td>DoubleConstIntLeftShiftBitConverter</td><td>65536</td><td>3</td><td>53.70 &mu;s</td><td>0.190 &mu;s</td><td>0.178 &mu;s</td><td>53.70 &mu;s</td><td>37 B</td>
+</tr><tr><td>DoubleConstIntLeftShiftVector128</td><td>65536</td><td>3</td><td>18.14 &mu;s</td><td>0.067 &mu;s</td><td>0.056 &mu;s</td><td>18.13 &mu;s</td><td>28 B</td>
+</tr><tr><td>DoubleConstIntUnsignedRightShiftBitConverter</td><td>65536</td><td>3</td><td>53.46 &mu;s</td><td>0.149 &mu;s</td><td>0.139 &mu;s</td><td>53.46 &mu;s</td><td>37 B</td>
+</tr><tr><td>DoubleConstIntUnsignedRightShiftVector128</td><td>65536</td><td>3</td><td>18.19 &mu;s</td><td>0.121 &mu;s</td><td>0.107 &mu;s</td><td>18.19 &mu;s</td><td>28 B</td>
+</tr><tr><td>SingleConstIntLeftShiftBitConverter</td><td>65536</td><td>3</td><td>53.48 &mu;s</td><td>0.216 &mu;s</td><td>0.181 &mu;s</td><td>53.44 &mu;s</td><td>34 B</td>
+</tr><tr><td>SingleConstIntLeftShiftVector128</td><td>65536</td><td>3</td><td>18.16 &mu;s</td><td>0.145 &mu;s</td><td>0.121 &mu;s</td><td>18.14 &mu;s</td><td>28 B</td>
+</tr><tr><td>SingleConstIntRightShiftBitConverter</td><td>65536</td><td>3</td><td>53.46 &mu;s</td><td>0.152 &mu;s</td><td>0.135 &mu;s</td><td>53.49 &mu;s</td><td>34 B</td>
+</tr><tr><td>SingleConstIntRightShiftVector128</td><td>65536</td><td>3</td><td>18.16 &mu;s</td><td>0.142 &mu;s</td><td>0.126 &mu;s</td><td>18.14 &mu;s</td><td>28 B</td>
+</tr><tr><td>SingleConstIntUnsignedRightShiftBitConverter</td><td>65536</td><td>3</td><td>53.56 &mu;s</td><td>0.231 &mu;s</td><td>0.205 &mu;s</td><td>53.58 &mu;s</td><td>34 B</td>
+</tr><tr><td>SingleConstIntUnsignedRightShiftVector128</td><td>65536</td><td>3</td><td>18.65 &mu;s</td><td>0.371 &mu;s</td><td>0.679 &mu;s</td><td>18.33 &mu;s</td><td>28 B</td>
+</tr></tbody></table>
+</body>
+</html>

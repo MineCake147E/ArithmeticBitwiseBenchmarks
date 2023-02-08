@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 
+using static ArithmeticBitwiseBenchmarks.BenchmarkCategories;
+
 namespace ArithmeticBitwiseBenchmarks
 {
     [SimpleJob(runtimeMoniker: RuntimeMoniker.HostProcess)]
@@ -23,6 +25,7 @@ namespace ArithmeticBitwiseBenchmarks
         public int LoopCount { get; set; }
         #region Single With Single
         [Arguments(3.0f, 1.0f)]
+        [BenchmarkCategory(CategoryTypeSingle, CategoryBinary, CategoryFloatWithFloat, CategoryOperatorMultiply, CategoryBitConverter)]
         [Benchmark, MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public float SingleSingleMultiplyBitConverter(float left, float right)
         {
@@ -35,6 +38,7 @@ namespace ArithmeticBitwiseBenchmarks
         }
 
         [Arguments(3.0f, 1.0f)]
+        [BenchmarkCategory(CategoryTypeSingle, CategoryBinary, CategoryFloatWithFloat, CategoryOperatorMultiply, CategoryIntrinsics)]
         [Benchmark, MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public float SingleSingleMultiplySse2(float left, float right)
         {
@@ -47,6 +51,7 @@ namespace ArithmeticBitwiseBenchmarks
         }
 
         [Arguments(3.0f, 1.0f)]
+        [BenchmarkCategory(CategoryTypeSingle, CategoryBinary, CategoryFloatWithFloat, CategoryOperatorMultiply, CategoryVector128)]
         [Benchmark, MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public float SingleSingleMultiplyVector128(float left, float right)
         {
@@ -63,6 +68,7 @@ namespace ArithmeticBitwiseBenchmarks
         #region Single With Constant Int32
 
         [Arguments(3.0f)]
+        [BenchmarkCategory(CategoryTypeSingle, CategoryBinary, CategoryFloatWithConstInt, CategoryOperatorMultiply, CategoryBitConverter)]
         [Benchmark, MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public float SingleConstInt32MultiplyBitConverter(float left)
         {
@@ -75,6 +81,7 @@ namespace ArithmeticBitwiseBenchmarks
         }
 
         [Arguments(3.0f)]
+        [BenchmarkCategory(CategoryTypeSingle, CategoryBinary, CategoryFloatWithConstInt, CategoryOperatorMultiply, CategoryIntrinsics)]
         [Benchmark, MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public float SingleConstInt32MultiplySse2(float left)
         {
@@ -87,6 +94,7 @@ namespace ArithmeticBitwiseBenchmarks
         }
 
         [Arguments(3.0f)]
+        [BenchmarkCategory(CategoryTypeSingle, CategoryBinary, CategoryFloatWithConstInt, CategoryOperatorMultiply, CategoryVector128)]
         [Benchmark, MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public float SingleConstInt32MultiplyVector128(float left)
         {
@@ -103,6 +111,7 @@ namespace ArithmeticBitwiseBenchmarks
         #region Single With Variable Int32 in GP register
 
         [Arguments(3.0f, 0x3f80_0000)]
+        [BenchmarkCategory(CategoryTypeSingle, CategoryBinary, CategoryFloatWithGPInt, CategoryOperatorMultiply, CategoryBitConverter)]
         [Benchmark, MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public float SingleVariableInt32MultiplyBitConverter(float left, int right)
         {
@@ -115,6 +124,7 @@ namespace ArithmeticBitwiseBenchmarks
         }
 
         [Arguments(3.0f, 0x3f80_0000)]
+        [BenchmarkCategory(CategoryTypeSingle, CategoryBinary, CategoryFloatWithGPInt, CategoryOperatorMultiply, CategoryIntrinsics)]
         [Benchmark, MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public float SingleVariableInt32MultiplySse2(float left, int right)
         {
@@ -127,6 +137,7 @@ namespace ArithmeticBitwiseBenchmarks
         }
 
         [Arguments(3.0f, 0x3f80_0000)]
+        [BenchmarkCategory(CategoryTypeSingle, CategoryBinary, CategoryFloatWithGPInt, CategoryOperatorMultiply, CategoryVector128)]
         [Benchmark, MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public float SingleVariableInt32MultiplyVector128(float left, int right)
         {

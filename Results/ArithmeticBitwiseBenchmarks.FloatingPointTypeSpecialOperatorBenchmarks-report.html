@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>ArithmeticBitwiseBenchmarks.FloatingPointTypeSpecialOperatorBenchmarks-20230208-184440</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.4, OS=Windows 10 (10.0.19045.2486)
+Intel Core i7-4790 CPU 3.60GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+.NET SDK=7.0.200-preview.22628.1
+  [Host]     : .NET 7.0.2 (7.0.222.60605), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.2 (7.0.222.60605), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>                         Method</th><th>LoopCount</th><th>         left</th><th>        right</th><th>value</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Code Size</th>
+</tr>
+</thead><tbody><tr><td>DoubleConstInt64AndNotBitConverter</td><td>65536</td><td>3</td><td>?</td><td>?</td><td>53.59 &mu;s</td><td>0.157 &mu;s</td><td>0.131 &mu;s</td><td>52 B</td>
+</tr><tr><td>DoubleConstInt64AndNotVector128</td><td>65536</td><td>3</td><td>?</td><td>?</td><td>18.22 &mu;s</td><td>0.106 &mu;s</td><td>0.094 &mu;s</td><td>35 B</td>
+</tr><tr><td>DoubleDoubleAndNotBitConverter</td><td>65536</td><td>3</td><td>1</td><td>?</td><td>53.52 &mu;s</td><td>0.094 &mu;s</td><td>0.084 &mu;s</td><td>47 B</td>
+</tr><tr><td>DoubleDoubleAndNotVector128</td><td>65536</td><td>3</td><td>1</td><td>?</td><td>22.62 &mu;s</td><td>0.446 &mu;s</td><td>1.034 &mu;s</td><td>27 B</td>
+</tr><tr><td>DoubleVariableInt64AndNotBitConverter</td><td>65536</td><td>3</td><td>4607182418800017408</td><td>?</td><td>53.44 &mu;s</td><td>0.145 &mu;s</td><td>0.136 &mu;s</td><td>42 B</td>
+</tr><tr><td>DoubleVariableInt64AndNotVector128</td><td>65536</td><td>3</td><td>4607182418800017408</td><td>?</td><td>18.29 &mu;s</td><td>0.150 &mu;s</td><td>0.140 &mu;s</td><td>32 B</td>
+</tr><tr><td>VariableInt64DoubleAndNotBitConverter</td><td>65536</td><td>4607182418800017408</td><td>1</td><td>?</td><td>53.46 &mu;s</td><td>0.207 &mu;s</td><td>0.194 &mu;s</td><td>40 B</td>
+</tr><tr><td>VariableInt64DoubleAndNotVector128</td><td>65536</td><td>4607182418800017408</td><td>1</td><td>?</td><td>18.16 &mu;s</td><td>0.082 &mu;s</td><td>0.073 &mu;s</td><td>32 B</td>
+</tr><tr><td>DoubleDecrementBitConverter</td><td>65536</td><td>?</td><td>?</td><td>3</td><td>53.45 &mu;s</td><td>0.167 &mu;s</td><td>0.148 &mu;s</td><td>36 B</td>
+</tr><tr><td>DoubleDecrementVector128</td><td>65536</td><td>?</td><td>?</td><td>3</td><td>18.27 &mu;s</td><td>0.151 &mu;s</td><td>0.134 &mu;s</td><td>31 B</td>
+</tr><tr><td>DoubleIncrementBitConverter</td><td>65536</td><td>?</td><td>?</td><td>3</td><td>53.41 &mu;s</td><td>0.149 &mu;s</td><td>0.132 &mu;s</td><td>36 B</td>
+</tr><tr><td>DoubleIncrementVector128</td><td>65536</td><td>?</td><td>?</td><td>3</td><td>18.46 &mu;s</td><td>0.308 &mu;s</td><td>0.302 &mu;s</td><td>31 B</td>
+</tr><tr><td>SingleConstInt32AndNotBitConverter</td><td>65536</td><td>3</td><td>?</td><td>?</td><td>53.56 &mu;s</td><td>0.146 &mu;s</td><td>0.130 &mu;s</td><td>46 B</td>
+</tr><tr><td>SingleConstInt32AndNotVector128</td><td>65536</td><td>3</td><td>?</td><td>?</td><td>18.26 &mu;s</td><td>0.207 &mu;s</td><td>0.184 &mu;s</td><td>35 B</td>
+</tr><tr><td>SingleSingleAndNotBitConverter</td><td>65536</td><td>3</td><td>1</td><td>?</td><td>53.50 &mu;s</td><td>0.251 &mu;s</td><td>0.223 &mu;s</td><td>45 B</td>
+</tr><tr><td>SingleSingleAndNotVector128</td><td>65536</td><td>3</td><td>1</td><td>?</td><td>29.20 &mu;s</td><td>0.581 &mu;s</td><td>1.382 &mu;s</td><td>27 B</td>
+</tr><tr><td>SingleVariableInt32AndNotBitConverter</td><td>65536</td><td>3</td><td>1065353216</td><td>?</td><td>55.24 &mu;s</td><td>0.297 &mu;s</td><td>0.278 &mu;s</td><td>40 B</td>
+</tr><tr><td>SingleVariableInt32AndNotVector128</td><td>65536</td><td>3</td><td>1065353216</td><td>?</td><td>20.04 &mu;s</td><td>0.324 &mu;s</td><td>0.303 &mu;s</td><td>32 B</td>
+</tr><tr><td>VariableInt32SingleAndNotBitConverter</td><td>65536</td><td>1065353216</td><td>1</td><td>?</td><td>54.38 &mu;s</td><td>0.274 &mu;s</td><td>0.243 &mu;s</td><td>40 B</td>
+</tr><tr><td>VariableInt32SingleAndNotVector128</td><td>65536</td><td>1065353216</td><td>1</td><td>?</td><td>20.67 &mu;s</td><td>0.265 &mu;s</td><td>0.207 &mu;s</td><td>31 B</td>
+</tr><tr><td>SingleDecrementBitConverter</td><td>65536</td><td>?</td><td>?</td><td>3</td><td>53.76 &mu;s</td><td>0.228 &mu;s</td><td>0.202 &mu;s</td><td>33 B</td>
+</tr><tr><td>SingleDecrementVector128</td><td>65536</td><td>?</td><td>?</td><td>3</td><td>19.75 &mu;s</td><td>0.337 &mu;s</td><td>0.316 &mu;s</td><td>31 B</td>
+</tr><tr><td>SingleIncrementBitConverter</td><td>65536</td><td>?</td><td>?</td><td>3</td><td>54.18 &mu;s</td><td>0.389 &mu;s</td><td>0.364 &mu;s</td><td>33 B</td>
+</tr><tr><td>SingleIncrementVector128</td><td>65536</td><td>?</td><td>?</td><td>3</td><td>19.92 &mu;s</td><td>0.389 &mu;s</td><td>0.400 &mu;s</td><td>31 B</td>
+</tr></tbody></table>
+</body>
+</html>

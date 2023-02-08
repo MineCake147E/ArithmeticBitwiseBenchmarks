@@ -18,16 +18,6 @@ namespace ArithmeticBitwiseBenchmarks
     [DisassemblyDiagnoser(maxDepth: int.MaxValue)]
     public partial class FloatingPointTypeIntegerArithmeticBitwiseBenchmarks
     {
-        private const string CategoryBitConverter = "BitConverter";
-        private const string CategoryVector128 = "Vector128";
-        private const string CategoryFloatWithFloat = "FloatWithFloat";
-        private const string CategoryFloatWithConstInt = "FloatWithConstInt";
-        private const string CategoryConstIntWithFloat = "ConstIntWithFloat";
-        private const string CategoryFloatWithGPInt = "FloatWithGPInt";
-        private const string CategoryGPIntWithFloat = "GPIntWithFloat";
-        private const string CategoryBinary = "Binary";
-        private const string CategoryUnary = "Unary";
-
         [Params(65536)]
         public int LoopCount { get; set; }
     }

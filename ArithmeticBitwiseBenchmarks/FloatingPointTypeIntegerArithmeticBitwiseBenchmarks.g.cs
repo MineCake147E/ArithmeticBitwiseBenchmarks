@@ -10,28 +10,33 @@ using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
+using static ArithmeticBitwiseBenchmarks.BenchmarkCategories;
 
 namespace ArithmeticBitwiseBenchmarks
 {
-    public partial class FloatingPointTypeIntegerArithmeticBitwiseBenchmarks
+    public static partial class BenchmarkCategories
     {
         #region Categories
-        private const string CategoryTypeSingle = "Single";
-        private const string CategoryTypeDouble = "Double";
-        private const string CategoryOperatorAddition = "Addition";
-        private const string CategoryOperatorBitwiseAnd = "BitwiseAnd";
-        private const string CategoryOperatorBitwiseOr = "BitwiseOr";
-        private const string CategoryOperatorExclusiveOr = "ExclusiveOr";
-        private const string CategoryOperatorSubtraction = "Subtraction";
-        private const string CategoryOperatorOnesComplement = "OnesComplement";
-        private const string CategoryOperatorUnaryNegation = "UnaryNegation";
-        private const string CategoryOperatorUnsignedRightShift = "UnsignedRightShift";
-        private const string CategoryOperatorRightShift = "RightShift";
-        private const string CategoryOperatorLeftShift = "LeftShift";
-        private const string CategoryOperatorDecrement = "Decrement";
-        private const string CategoryOperatorIncrement = "Increment";
+        public const string CategoryTypeSingle = "Single";
+        public const string CategoryTypeDouble = "Double";
+        public const string CategoryOperatorAddition = "Addition";  //+
+        public const string CategoryOperatorBitwiseAnd = "BitwiseAnd";  //&
+        public const string CategoryOperatorBitwiseOr = "BitwiseOr";  //|
+        public const string CategoryOperatorExclusiveOr = "ExclusiveOr";  //^
+        public const string CategoryOperatorSubtraction = "Subtraction";  //-
+        public const string CategoryOperatorOnesComplement = "OnesComplement";  //~
+        public const string CategoryOperatorUnaryNegation = "UnaryNegation";  //-
+        public const string CategoryOperatorMultiply = "Multiply";  //*
+        public const string CategoryOperatorAndNot = "AndNot";  //&~
+        public const string CategoryOperatorUnsignedRightShift = "UnsignedRightShift";  //>>>
+        public const string CategoryOperatorRightShift = "RightShift";  //>>
+        public const string CategoryOperatorLeftShift = "LeftShift";  //<<
+        public const string CategoryOperatorDecrement = "Decrement";  //--
+        public const string CategoryOperatorIncrement = "Increment";  //++
         #endregion Categories
-
+    }
+    public partial class FloatingPointTypeIntegerArithmeticBitwiseBenchmarks
+    {
         #region Single
 
         #region Commutative Binary Integer Operators with Single
